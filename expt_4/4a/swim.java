@@ -31,8 +31,29 @@ class pool
     {
 
       //HashMap< pair<Integer ,Integer>,String > h1 = new HashMap<>();
-      
+      HashMap<Integer , String> time = new HashMap<>();
+      HashMap<Integer , String> day= new HashMap<>();
+      time.put(0,"11-12 pm on ");
+      time.put(1,"12-1 pm on ");
+      time.put(2,"1-2 pm on ");
+      time.put(3,"2-3 pm on ");
 
+      day.put(0, "Monday");
+      day.put(1, "Tuesday");
+      day.put(2, "Wednesday");
+      day.put(3, "Thusrday");
+
+      if (time.containsKey(a)) 
+      {
+       System.out.println(time.get(a)); 
+      }
+
+      if (day.containsKey(b)) 
+      {
+       System.out.print(day.get(b)+"\n"); 
+      }
+
+/* 
        switch (a) 
        {
         case 0:
@@ -93,6 +114,7 @@ class pool
             break;
         }
        }
+       */
     }
 
     void mark(int m ,int a , int b , int c)
