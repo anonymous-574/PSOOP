@@ -26,7 +26,7 @@ class cart
           System.out.println("Enter perishibility info:");
           data[j][0][i]=sc.nextInt();
           
-          if (data[j][0][i]!=1 ||data[j][0][i]!=2) 
+          if (data[j][0][i]==0) 
           {
            System.out.println("Error: User is an idiot");
            System.exit(0);
@@ -57,7 +57,7 @@ class cart
         int cost_of_perish=0;
         for (int j = 0; j < 3; j++) {
             
-        cost_of_perish=0;
+        
         for (int i = 0; i < no_of_items[j]; i++) 
         {
           if (data[j][0][i]==1) 
@@ -65,7 +65,7 @@ class cart
             cost_of_perish+=data[j][1][i];
           }  
         }
-        System.out.printf("Total Cost of perishible items in card %d is %d \n",(j+1),cost_of_perish);
+        System.out.printf("Total Cost of perishible items is %d \n",cost_of_perish);
        }
     }
 
@@ -75,7 +75,7 @@ class cart
 
         for (int j = 0; j < 3; j++) 
         {
-            max_non_perish=0;
+            
         for (int i = 0; i < no_of_items[j]; i++) 
         {
               if (data[j][1][i]>max_non_perish && data[j][0][i]==2) 
@@ -85,7 +85,7 @@ class cart
               }
            
         }
-        System.out.printf("Maximum cost of non perishible item in cart %d is %d \n",(j+1),max_non_perish);
+        System.out.printf("Maximum cost of non perishible item is %d \n",max_non_perish);
        }
     }
     
