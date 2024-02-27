@@ -15,12 +15,6 @@ class cart
         no_of_items[k]=sc.nextInt();
         data[k][0] = new int[no_of_items[k]];
         data[k][1] = new int[no_of_items[k]];
-        
-        /*
-             array_name[] = new data_type[n1] //n1= no. of columns in row-1
-             array_name[] = new data_type[n2] //n2= no. of columns in row-2
-             array_name[] = new data_type[n3] //n3= no. of columns in row-3
-             */
         }
         
         for (int j = 0; j < 3; j++) {
