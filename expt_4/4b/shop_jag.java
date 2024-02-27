@@ -25,14 +25,13 @@ class cart
           System.out.println("Enter Data for item:"+(i+1));
           System.out.println("Enter perishibility info:");
           data[j][0][i]=sc.nextInt();
-          /*
-          if (data[j][0][i]==0) 
+          
+          if (data[j][0][i]!=1 ||data[j][0][i]!=2) 
           {
-           no_of_items[j]=i;
-           
-           break; 
+           System.out.println("Error: User is an idiot");
+           break;
           }
-          */
+          
           System.out.println("Enter Price: ");
           data[j][1][i]=sc.nextInt();    
         }
