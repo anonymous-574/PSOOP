@@ -29,7 +29,7 @@ class cart
           if (data[j][0][i]!=1 ||data[j][0][i]!=2) 
           {
            System.out.println("Error: User is an idiot");
-           break;
+           System.exit(0);
           }
           
           System.out.println("Enter Price: ");
