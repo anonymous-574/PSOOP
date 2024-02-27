@@ -15,6 +15,12 @@ class cart
         no_of_items[k]=sc.nextInt();
         data[k][0] = new int[no_of_items[k]];
         data[k][1] = new int[no_of_items[k]];
+        
+        /*
+             array_name[] = new data_type[n1] //n1= no. of columns in row-1
+             array_name[] = new data_type[n2] //n2= no. of columns in row-2
+             array_name[] = new data_type[n3] //n3= no. of columns in row-3
+             */
         }
         
         for (int j = 0; j < 3; j++) {
@@ -53,20 +59,20 @@ class cart
        }
     }
 
-    void no_of_perish()
+    void cost_of_perish()
     {
-        int no_of_perish=0;
+        int cost_of_perish=0;
         for (int j = 0; j < 3; j++) {
             
-        no_of_perish=0;
+        cost_of_perish=0;
         for (int i = 0; i < no_of_items[j]; i++) 
         {
           if (data[j][0][i]==1) 
           {
-            no_of_perish++;
+            cost_of_perish+=data[j][1][i];
           }  
         }
-        System.out.printf("There are %d perishible items in cart %d \n",no_of_perish,(j+1));
+        System.out.printf("Total Cost of perishible items in card %d is %d \n",(j+1),cost_of_perish);
        }
     }
 
@@ -99,6 +105,6 @@ public class shop_jag {
 
         c1.tot_cost();
         c1.max_non_perish();
-        c1.no_of_perish();
+        c1.cost_of_perish();
     }
 }
