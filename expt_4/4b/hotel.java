@@ -61,31 +61,35 @@ static void ls_hotel_type(manage m[] , int room_type)
   int num=0;
   for (int i = 0; i < m.length; i++) 
   {
-   num+=m[i].room[room_type];
-  } 
+   
+    num=0;
 
   switch (room_type) {
       case 0:
       {
-      System.out.printf("There are %d rooms of standard type",num);
+      num+=m[i].room[room_type];
+      System.out.printf("There are %d rooms of standard type in hotel %d \n",num,(i+1));
       break;
       }
       case 1:
       {
-      System.out.printf("There are %d rooms of deluxe type",num);
+      num+=m[i].room[room_type];
+      System.out.printf("There are %d rooms of deluxe type in hotel %d\n ",num,(i+1));
       break;
       }
       case 2:
       {
-      System.out.printf("There are %d rooms of suite type",num);
+      num+=m[i].room[room_type];
+      System.out.printf("There are %d rooms of suite type in hotel %dn",num,(i+1));
       break;
       }
   
-    default:
-    {
-      System.out.println("Acheivement unlocked: User is an idiot (¬_¬ )");
-      break;
-    }
+      default:
+     {
+       System.out.println("Acheivement unlocked: User is an idiot (¬_¬ )");
+       break;
+     }
+   }
   }
 
   
