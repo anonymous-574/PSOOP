@@ -7,52 +7,52 @@ class stock
 
   stock()
   {
-    String n =null;
+    name =null;
 
   }
 
-  stock(String n , int p[] )
+  stock(String n , int price[] )
   {
     this.name=n;
-    this.price=p;
+    this.price=price;
   }
 }
 
 class transaction extends stock
 {
-    transaction(String n , int p[] )
+
+    transaction(String n , int price[] )
     {
-        super(n, p);
+        super(n, price);
     }
 
     int max_profit()
     {
       int profit=0;
-      int stockBuyDay=-1;
-      for (int i = 0; i < price.length - 1; i++) {
-      if (price[i] < price[i + 1]) {
-      if (stockBuyDay == -1) {
-      stockBuyDay = i;
+      int j=0;
+
+      for (int i = 1; i < price.length; i++) 
+      {
+         if(price[i-1]>price[i])
+         {
+        
+          j=i;
+         }
+
+         if( (price[i-1]< price[i]) && (i+1==price.length || price[i]>price[i+1]))
+         {
+          profit+= price[i]-price[j];
+          System.out.printf("Buy on day %d and sell on day %d \n",(i+1),(j+1));
+         }
       }
-      profit += price[i + 1] - price[i];
-      if(i==price.length - 2){
-      System.out.println("Buy on day " + (price.length -
-      1) + " and sell on day " + (price.length)+"\n");
-      }}
-      else {
-      if (stockBuyDay != -1) {
-      System.out.println("Buy on day " + (stockBuyDay + 1) +
-      " and sell on day " + (i + 1)+"\n");
-      stockBuyDay = -1;
-      }
-      }
-      }
+
+      
+
       return profit;
-      }
-      }
-    
+    }
+  }
 
-
+  
 public class market {
     public static void main(String[] args) 
     {
@@ -77,3 +77,5 @@ public class market {
         sc.close();
     }
 }
+
+
