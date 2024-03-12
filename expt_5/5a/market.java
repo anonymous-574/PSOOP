@@ -42,7 +42,7 @@ class transaction extends stock
          if( (price[i-1]< price[i]) && (i+1==price.length || price[i]>price[i+1]))
          {
           profit+= price[i]-price[j];
-          System.out.printf("Buy on day %d and sell on day %d \n",(i+1),(j+1));
+          System.out.printf("Buy on day %d and sell on day %d \n",(j+1),(i+1));
          }
       }
 
