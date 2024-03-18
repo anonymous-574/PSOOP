@@ -63,9 +63,7 @@ public class movie
 {
     public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    //every time object is made performance ++
-    //int no_of_performances=0;
-
+        
     play[] p= new play[3];
     musical[] m= new musical[2];
     String temp_title , temp_dir , temp_wri , temp_comp , temp_lyr;
@@ -84,7 +82,6 @@ public class movie
         temp_cost=sc.nextInt();
         System.out.println("what is number of seats booked");  
         temp_seat=sc.nextInt();
-        //no_of_performances++;
         p[i]=new play(temp_title, temp_dir, temp_wri, temp_cost, temp_seat);
     }
 
@@ -106,7 +103,6 @@ public class movie
         temp_comp=sc.next();
         System.out.println("who is lyricist");
         temp_lyr=sc.next();
-        //no_of_performances++;
         m[i]=new musical(temp_title, temp_dir, temp_wri, temp_cost, temp_seat, temp_comp, temp_lyr);
     }
     sc.close();
