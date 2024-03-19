@@ -30,6 +30,8 @@ class rental
     days_late=sc.nextInt();
     a[1]=new action("R","X-523","lion king",15,days_late);
     
+        System.out.println(a[1].equals(a[1]));
+    
     System.out.println("How many days were you late for chalrie chap: ");
     days_late=sc.nextInt();
     c[0]=new comedy("PG-13","X-133","charlie chap",10,days_late);
@@ -85,15 +87,16 @@ class cinema
     }
     
     
-       @Override
-     public boolean equals(cinema obj) {
+     public boolean equals(action obj) {
          if (obj == this) {
              return true;
          }
          if (obj.getClass() != this.getClass()) {
              return false;
          }
-         return this.id==obj.id;
+         return this.id .equals(obj.id);
+     }
+     
 }
 
 class action extends cinema
