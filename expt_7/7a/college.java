@@ -17,7 +17,8 @@ abstract class course
     
 }
 
-class comps extends course{
+class comps extends course
+{
 
     comps(String n , String y , long u)
     {
@@ -28,12 +29,6 @@ class comps extends course{
     void student_details() {
         System.out.println("Comps student " +name+" of uid "+uid+" and of "+year+" year ");      
     }
-
-    //@Override
-    //public String toString()
-    //{
-    //    return "Comps student " +name+" of uid "+uid+" and of "+year+" year ";
-    //}
 }
 
 class it extends course{
@@ -89,21 +84,7 @@ public class college {
             comps_student[j]= new comps(temp_name, temp_year, temp_uid);
         }
 
-   //     void sort()
-   // {
-   //         movie_data temp = new movie_data();
-   //         for (int i = 0; i < movie.length; i++) {
-   //             for (int j = 1; j < movie.length-i; j++) {
-   //                 if(movie[j].cost >movie[j-1].cost)
-   //                 {
-   //                     
-   //                     temp = movie[j];
-   //                     movie[j] = movie[j-1];
-   //                     movie[j-1] = temp;
-   //                 }ghshgfd
-   //             }
-   //         }
-        //sort
+
         for (int i = 0; i < comps_student.length; i++) {
             for (int j = 1; j < comps_student.length-i; j++) 
             {
