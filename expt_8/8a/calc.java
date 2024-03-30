@@ -1,27 +1,5 @@
 import java.util.*;
 
-interface not_real
-{
-    final int x =5;
-    default void not_real_fn()
-    {
-        ello();
-        System.out.println("ello");
-    }
-
-    private void ello()
-    {
-        System.out.println("ello private");
-    }
-}
-
-class a implements not_real
-{
-    @Override
-    public void not_real_fn() {
-        not_real.super.not_real_fn();
-    }
-}
 
 interface volume
 {
@@ -75,10 +53,6 @@ class sphere implements volume,surface_area
 
 public class calc {
     public static void main(String[] args) {
-
-        a a1 = new a();
-        a1.not_real_fn();
-
         Scanner sc = new Scanner(System.in);
         int temp_ht,temp_rad,choice;
         System.out.println("Enter 1 for cylinder , 2 for cone , 3 for sphere");
