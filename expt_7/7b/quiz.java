@@ -3,8 +3,10 @@ import java.util.*;
 abstract class question
 {
     String question,real_ans;
+    int user_marks=0;
     abstract int get_solution(String user_ans);
     abstract void show_ques();
+    abstract void show_ans();
 }
 
 class mcq extends question
@@ -36,12 +38,19 @@ class mcq extends question
          if (user_ans.compareToIgnoreCase(real_ans)==0) 
          {
           System.out.println("Answer is correct"); 
+          user_marks++;
           return 1;  
          }
          else{
             System.out.println("Answer is wrong");
             return 0;
          }
+    }
+
+    @Override
+    void show_ans() {
+        System.out.println("Actual answer was "+real_ans);
+        System.out.println("You scored: "+user_marks);
     }
 }
 
@@ -64,6 +73,7 @@ class true_or_false extends question
          if (user_ans.compareToIgnoreCase(real_ans)==0) 
          {
           System.out.println("Answer is correct"); 
+          user_marks++;
           return 1;  
          }
          else{
@@ -71,7 +81,14 @@ class true_or_false extends question
             return 0;
          }
     }
+
+    @Override
+    void show_ans() {
+        System.out.println("Actual answer was "+real_ans);
+        System.out.println("You scored: "+user_marks);
+    }
 }
+
 
 
 
@@ -93,6 +110,24 @@ public class quiz {
         m[2]= new mcq("On average, how many seeds are located on the outside of a strawberry? ", "b", "100", "200", "400", "500");
 
 
+        Random rand = new Random();
+		
+		for (int i = 0; i < m.length; i++) {
+			int randomIndexToSwap = rand.nextInt(m.length);
+			mcq temp = m[randomIndexToSwap];
+			m[randomIndexToSwap] = m[i];
+			m[i] = temp;
+		}
+
+        for (int i = 0; i < t_f.length; i++) {
+			int randomIndexToSwap = rand.nextInt(t_f.length);
+			true_or_false temp = t_f[randomIndexToSwap];
+			t_f[randomIndexToSwap] = t_f[i];
+			t_f[i] = temp;
+		}
+
+
+
         for (int i = 0; i < t_f.length; i++) {
             t_f[i].show_ques();
             System.out.println("Enter t for true , f for false: ");
@@ -102,10 +137,24 @@ public class quiz {
 
         for (int i = 0; i < m.length; i++) {
             m[i].show_ques();
-            System.out.println("Enter a or b or c or d: ");
+            System.out.println("Enter Answer: ");
             user_imput=sc.next();
             score+=m[i].get_solution(user_imput);
         }
+
+        System.out.println("Your final results are: ");
+
+        for (int i = 0; i < t_f.length; i++) {
+            System.out.println("Question: "+(i+1));
+            t_f[i].show_ans();
+        }
+
+        for (int i = 0; i < m.length; i++) {
+            System.out.println("Question: "+(i+1));
+            m[i].show_ans();
+        }
+
+
         System.out.println("Your score is: "+score+" out of 10");
 
         

@@ -106,8 +106,38 @@ class comp_game extends player
 
 public class random_gen {
    public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    Scanner sc1 = new Scanner(System.in);
+    System.out.println("For human vs human press 1 , for human vs computer press 2 , for computer vs computer press 3");
+    int choice = sc1.nextInt();
 
+    switch (choice) {
+        case 1:
+        {   
+            human_vs_human();
+            break;
+        }
+        case 2:
+        {   
+            comp_vs_human();
+            break;
+        }
+        case 3:
+        {   
+            comp_vs_comp();
+            break;
+        }
+        default:
+        {
+            System.out.println("Error , user is an idiot: ");
+            break;
+        }
+    }
+    sc1.close();
+   } 
+
+   static void comp_vs_human()
+   {
+    Scanner sc = new Scanner(System.in);
     System.out.println("Enter max number of trials: ");
     int max_trial = sc.nextInt();
     human_game g = new human_game(max_trial);
@@ -126,9 +156,98 @@ public class random_gen {
     {
         t=(Math.random()*100);
         temp = (int)t;
+        System.out.println("Computers guess is "+temp);
         c.get_guess(temp);
     }
 
+    if (g.number_of_tries<c.number_of_tries) 
+    {
+     System.out.println("Human Won !!");    
+    }
+    else{
+        System.out.println("Computer won");
+    }
+
+
+
     sc.close();
-   } 
+   }
+
+
+   static void comp_vs_comp()
+   {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter max number of trials: ");
+    int max_trial = sc.nextInt();
+    comp_game c1 = new comp_game(max_trial);
+    comp_game c2 = new comp_game(max_trial);
+    int temp;
+    double t;
+
+  
+    while(c1.chk)
+    {
+        t=(Math.random()*100);
+        temp = (int)t;
+        System.out.println("Computers guess is "+temp);
+        c1.get_guess(temp);
+    }
+
+    while(c2.chk)
+    {
+        t=(Math.random()*100);
+        temp = (int)t;
+        System.out.println("Computers guess is "+temp);
+        c2.get_guess(temp);
+    }
+
+    if (c1.number_of_tries<c2.number_of_tries) 
+    {
+     System.out.println("computer 1 Won !!");    
+    }
+    else{
+        System.out.println("Computer 2 won");
+    }
+
+    sc.close();
+   }
+
+   static void human_vs_human()
+   {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter max number of trials: ");
+    int max_trial = sc.nextInt();
+    human_game g1 = new human_game(max_trial);
+    human_game g2 = new human_game(max_trial);
+    int n;
+
+    while (g1.chk) 
+    {
+        System.out.println("Enter number: ");
+        n=sc.nextInt();
+        g1.get_guess(n);
+    }
+
+    while (g2.chk) 
+    {
+        System.out.println("Enter number: ");
+        n=sc.nextInt();
+        g2.get_guess(n);
+    }
+    
+    if (g1.number_of_tries<g2.number_of_tries) 
+    {
+     System.out.println("Human 1 Won !!");    
+    }
+    else{
+        System.out.println("Human 2 won");
+    }
+
+    sc.close();
+
+   }
+
+   
+
+
 }
