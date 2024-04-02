@@ -29,7 +29,7 @@ class a extends mark_calc
     void sort_mark()
     {
         int temp;
-
+        System.out.println("Sorted marks are: ");
         for (int i = 0; i < marks.length; i++) {
             for (int j = 1; j < marks.length-i; j++) 
             {
@@ -71,7 +71,7 @@ class b extends mark_calc
     void sort_mark()
     {
         int temp;
-
+        System.out.println("Sorted marks are: ");
         for (int i = 0; i < marks.length; i++) {
             for (int j = 1; j < marks.length-i; j++) 
             {
@@ -111,7 +111,7 @@ public class marks {
         System.out.println("Enter info of subject "+ (i+1));
         b_info[i]=sc.nextInt();
     }
-    
+
     b b1 = new b(b_info);
     b1.get_percent();
     b1.sort_mark();
