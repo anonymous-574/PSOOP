@@ -2,24 +2,24 @@ import java.util.*;
 
 abstract class shape
 {
-    abstract double rect_area(int len , int bre);
-    abstract double circ_area(int r);
-    abstract double squ_area(int s);
+    abstract double rect_area(double len , double bre);
+    abstract double circ_area(double r);
+    abstract double squ_area(double s);
 }
 
 class area extends shape
 {
-    double rect_area(int l , int b)
+    double rect_area(double l , double b)
     {
         return l*b;
     }
 
-    double circ_area(int r)
+    double circ_area(double r)
     {
         return Math.PI *r*r;
     }
 
-    double squ_area(int s)
+    double squ_area(double s)
     {
         return s*s;
     }
@@ -32,16 +32,16 @@ public class area_calc {
         area a = new area();
         System.out.println("Enter rectangle details: ");
         System.out.println("Enter length of rectangle: ");
-        int len = sc.nextInt();
+        double len = sc.nextDouble();
         System.out.println("enter breadth of rectangle: ");
-        int bre = sc.nextInt();
-        a.rect_area(len, bre);
+        double bre = sc.nextDouble();
+        System.out.println(a.rect_area(len, bre));
         System.out.println("Enter circle radius: ");
-        int rad = sc.nextInt();
-        a.circ_area(rad);
+        double rad = sc.nextDouble();
+        System.out.println(a.circ_area(rad));
         System.out.println("Enter square side");
-        int s = sc.nextInt();
-        a.squ_area(s);
+        double s = sc.nextDouble();
+        System.out.println(a.squ_area(s));
         sc.close();
     }
 }
