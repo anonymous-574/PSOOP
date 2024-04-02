@@ -1,7 +1,4 @@
-import java.nio.channels.AcceptPendingException;
 import java.util.*;
-
-import javax.crypto.BadPaddingException;
 
 abstract class mark_calc {
 double percentage;
@@ -98,6 +95,8 @@ public class marks {
         
     Scanner sc = new Scanner(System.in);
     int[] a_info= new int[3];
+
+    System.out.println("Enter info for student 1 with 3 subjects: ");
     for (int i = 0; i < a_info.length; i++) {
         System.out.println("Enter info of subject "+ (i+1));
         a_info[i]=sc.nextInt();
@@ -107,16 +106,15 @@ public class marks {
     a1.sort_mark();
 
     int[] b_info= new int[4];
+    System.out.println("Enter info for student 2 with 4 subjects");
     for (int i = 0; i < b_info.length; i++) {
         System.out.println("Enter info of subject "+ (i+1));
         b_info[i]=sc.nextInt();
     }
+    
     b b1 = new b(b_info);
     b1.get_percent();
     b1.sort_mark();
-
-
-
     sc.close();
     }
 }
