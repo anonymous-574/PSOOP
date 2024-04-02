@@ -98,33 +98,18 @@ public class quiz_arraylist {
 
         int score=0;
         String user_imput;
-        mcq[] m= new mcq[3];
-        true_or_false[] t_f = new true_or_false[3];
-
-        t_f[0]= new true_or_false("is 1+1 =2? ", "t");
-        t_f[1]= new true_or_false("is 1+3 =5? ", "f");
-        t_f[2]= new true_or_false("is 1*6 =5? ", "f");
-
-        m[0]= new mcq("What’s the heaviest organ in the human body? ", "b", "Brain", "Liver", "Skin", "Heart");
-        m[1]= new mcq("What element does the chemical symbol Au stand for?  ", "d", "Silver", "Magnesium", "Salt", "Gold");
-        m[2]= new mcq("On average, how many seeds are located on the outside of a strawberry? ", "b", "100", "200", "400", "500");
 
         ArrayList <true_or_false> t_f_q=new ArrayList<>(); 
-        t_f_q.add(t_f[0]);
-        t_f_q.add(t_f[1]);
-        t_f_q.add(t_f[2]);
+        t_f_q.add(new true_or_false("is 1+1 =2? ", "t"));
+        t_f_q.add(new true_or_false("is 1+3 =5? ", "f"));
+        t_f_q.add(new true_or_false("is 1*6 =5? ", "f"));
         Collections.shuffle(t_f_q);
 
-
         ArrayList <mcq> mcq_q=new ArrayList<>();
-        mcq_q.add(m[0]);
-        mcq_q.add(m[1]);
-        mcq_q.add(m[2]);
+        mcq_q.add(new mcq("What’s the heaviest organ in the human body? ", "b", "Brain", "Liver", "Skin", "Heart"));
+        mcq_q.add(new mcq("What element does the chemical symbol Au stand for?  ", "d", "Silver", "Magnesium", "Salt", "Gold"));
+        mcq_q.add(new mcq("On average, how many seeds are located on the outside of a strawberry? ", "b", "100", "200", "400", "500"));
         Collections.shuffle(mcq_q);
-
-
-       
-
 
         for (int i = 0; i < t_f_q.size(); i++) {
             t_f_q.get(i).show_ques();
@@ -133,7 +118,7 @@ public class quiz_arraylist {
             score+=t_f_q.get(i).get_solution(user_imput);
         }
 
-        for (int i = 0; i < m.length; i++) {
+        for (int i = 0; i < mcq_q.size(); i++) {
             mcq_q.get(i).show_ques();
             System.out.println("Enter Answer: ");
             user_imput=sc.next();
