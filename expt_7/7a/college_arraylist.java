@@ -59,7 +59,7 @@ public class college_arraylist {
         ArrayList <it> it_stud = new ArrayList<>();
         ArrayList <comps>comps_stud = new ArrayList<>();
 
-        System.out.println("How many comps students are there?");
+        System.out.println("How many IT students are there?");
         int no_of_comps_students=sc.nextInt();
         System.out.println("enter details of it students");
         for (int j = 0; j < no_of_comps_students; j++) {
@@ -74,7 +74,7 @@ public class college_arraylist {
             it_stud.add(new it(temp_name, temp_year, temp_uid));
         }
 
-        System.out.println("How many it students are there?");
+        System.out.println("How many Comps students are there?");
         int no_of_it_students=sc.nextInt();
         System.out.println("Enter details of comps students");
         for (int j = 0; j < no_of_it_students; j++) {
