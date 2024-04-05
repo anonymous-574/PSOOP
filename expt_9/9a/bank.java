@@ -16,7 +16,7 @@ class min_bal_err extends Exception
     }
 }
 
-class withdrawal_fail1 extends Exception
+class withdrawal_fail extends Exception
 {
     @Override
     public String toString() {
@@ -24,13 +24,6 @@ class withdrawal_fail1 extends Exception
     }
 }
 
-class withdrawal_fail2 extends Exception
-{
-    @Override
-    public String toString() {
-        return "You cannot withdraw 0 or negative money";
-    }
-}
 
 class deposit_fail extends Exception
 {
@@ -104,10 +97,10 @@ class saving_acc extends account
         try {
             
             if (balance<w) {
-                throw new withdrawal_fail1();
+                throw new withdrawal_fail();
             }
-            if (balance<=0) {
-                throw new withdrawal_fail2();
+            if (balance<=min_bal) {
+                throw new min_bal_err();
             }
             balance-=w;
         } catch (Exception e) {
