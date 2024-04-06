@@ -1,5 +1,6 @@
 import java.io.File;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Stream;
@@ -12,24 +13,84 @@ interface searchable
 class document implements searchable
 {
     String str;
-    char cha;
-    document(String s,char c)
+    String cha;
+    document(String s,String c)
     {
         this.str=s;
         this.cha=c;
     }
     @Override
+    public void search() 
+    {
+            
+            if (str.contains(cha)) {
+                System.out.println("Element found");
+            }
+            else
+            {
+                System.out.println("Element not found");
+            }
+
+    }
+}
+
+
+class webpage implements searchable
+{
+    String arr;
+    int int_arr[];
+    String chk;
+    int int_chk;
+    String[] broken_arr;
+    webpage(String imput,String chk)
+    {
+        this.arr=imput;
+        this.chk=chk;
+    }
+
+    @Override
     public void search() {
+
+        String[] broken_arr= arr.split("-");
+            
+        
+
+        //for (int i = 0; i < 6; i++) {
+        //    int_arr[i]=Integer.parseInt(broken_arr[i]);
+        //}
+    
+        //int_chk=Integer.parseInt(chk);
+
+        /* 
         int found=0;
-            for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i)==cha) {
-                System.out.println("Element found at: "+i);
-                found++;
+        for (int i = 0; i < int_arr.length; i++) {
+            if (int_arr[i]==int_chk) 
+            {
+             System.out.println("Element found ");   
+             found++;
             }
         }
-        if (found==0) {
-            System.out.println("Character not in array");
+
+            if(found==0)
+            {
+                System.out.println("Element does not exist");
+            }
+       */
+      int found=0;
+      for (int i = 0; i < broken_arr.length; i++) {
+        
+      if (broken_arr[i].contains(chk)) {
+        System.out.println("Element found");
+        found++;
         }
+    }
+        
+        if (found==0) {
+            System.out.println("Element not found");
+        }
+
+
+        
     }
 }
 
@@ -37,10 +98,11 @@ class document implements searchable
 public class file_handling {
     public static void main(String[] args) {
 
+        /* 
         int noOfLines=0;
         int temp_no=0;
 
-        try (Stream<String> fileStream = Files.lines(Paths.get("ello.txt"))) {
+        try (Stream<String> fileStream = Files.lines(Paths.get("string.txt"))) {
             noOfLines = (int) fileStream.count();
             temp_no=noOfLines;
         }
@@ -52,7 +114,7 @@ public class file_handling {
         
 
         
-        File myfile = new File("ello.txt");
+        File myfile = new File("string.txt");
 
         try {
             Scanner sc = new Scanner(myfile);
@@ -68,11 +130,11 @@ public class file_handling {
             Scanner sc1 = new Scanner(System.in);
 
             document d[]= new document[info.length];
-            char c_temp;
+            String c_temp;
     
             for (int j = 0; j < d.length; j++) {
                 System.out.println("Enter the character to check for in line "+(j+1)+": ");
-                c_temp = sc1.next().charAt(0);
+                c_temp = sc1.next();
                 d[j]=new document(info[j], c_temp);
                 d[j].search();
             }
@@ -83,7 +145,42 @@ public class file_handling {
         catch (Exception e) {
             e.printStackTrace();
         }
+        */
+
+        String int_info=null;
+        
+
+        
+        File myfile_int = new File("number.txt");
+
+        try {
+
+
+            int_info=Files.readString(Path.of("D:\\code\\java_code\\college\\expt_8\\8b\\file\\number.txt"));
+
+            Scanner sc1 = new Scanner(System.in);
+
+            System.out.println("Enter the number in program ");
+            String chk=sc1.next();
+        
+            webpage w = new webpage(int_info, chk);
+            w.search();
+            sc.close();
+            sc1.close();
+        }
+         
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+
     }
 
 
 }
+
