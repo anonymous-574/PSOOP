@@ -165,7 +165,6 @@ public class file_handling {
         
             webpage w = new webpage(int_info, chk);
             w.search();
-            sc.close();
             sc1.close();
         }
          
