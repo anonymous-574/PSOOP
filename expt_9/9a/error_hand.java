@@ -50,7 +50,7 @@ class employee
     }
         catch(Exception e)
         {
-            //e.printStackTrace();
+            System.out.println("Some Exception Occured");
         }
     
         finally
