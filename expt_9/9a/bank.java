@@ -39,7 +39,7 @@ class deposit_fail extends Exception
 abstract class account
 {
     String name;
-    double balance,interest , min_bal=500;
+    double balance;
     long acc_no;
     abstract void deposit(double d);
     abstract void withdraw(double w);
@@ -50,6 +50,7 @@ abstract class account
 class saving_acc extends account
 {
 
+    double interest , min_bal=500;
     saving_acc(String n , double b , long acc_no, double i)
     {
         this.name=n;
@@ -158,6 +159,38 @@ public class bank {
 
         s.print();
 
-        sc.close();
+        System.out.println("Enter info for person 2");
+        System.out.println("what is your name?");
+        String nam2 = sc.next();
+        System.out.println("what is your current account balance? ");
+        double cur_bal2 =sc.nextDouble();
+
+
+        System.out.println("what is interest rate? ");
+        double interest2 = sc.nextDouble();
+        System.out.println("What is account number? ");
+        long acc_no2 =sc.nextLong();
+        saving_acc s2 = new saving_acc(nam2, cur_bal2, acc_no2, interest2);
+
+        System.out.println("As person 2 how much money do you want to transfer to person 1? ");
+        double transfer =sc.nextDouble();
+
+        try {
+            if (s2.balance-transfer<s2.min_bal) {
+                throw new min_bal_err();
+            }
+            else
+            {
+                s2.balance-=transfer;
+                s.balance+=transfer;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        finally
+        {
+            sc.close();
+        }
+        
     }
 }
